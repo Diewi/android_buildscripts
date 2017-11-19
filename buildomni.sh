@@ -14,10 +14,10 @@
 export BASE_DIR=omnio
 
 export USE_CCACHE=1
-export CCACHE_DIR=/mnt/android/ccache
+export CCACHE_DIR=/mnt/android/ccache-${2}
 export OUT_DIR_COMMON_BASE=/mnt/android/output
 export OUT_DEVICE="${OUT_DIR_COMMON_BASE}/${BASE_DIR}/target/product/${2}"
-export USER=jenkins
+#export USER=jenkins
 
 cd "${1}"
 
@@ -33,8 +33,8 @@ rm -rf ${OUT_DEVICE}/system
 rm -rf ${OUT_DEVICE}/*.zip
 rm -rf "${OUT_DIR_COMMON_BASE}/${BASE_DIR}"/dist/*
 
-export JACK_SERVER_VM_ARGUMENTS="-Dfile.encoding=UTF-8 -XX:+TieredCompilation -Xmx4g"
-export ANDROID_JACK_VM_ARGS="$JACK_SERVER_VM_ARGUMENTS"
+#export JACK_SERVER_VM_ARGUMENTS="-Dfile.encoding=UTF-8 -XX:+TieredCompilation -Xmx4g"
+#export ANDROID_JACK_VM_ARGS="$JACK_SERVER_VM_ARGUMENTS"
 #./prebuilts/sdk/tools/jack-admin kill-server || true
 #./prebuilts/sdk/tools/jack-admin uninstall-server
 #./prebuilts/sdk/tools/jack-admin start-server || true
